@@ -11,6 +11,15 @@ const mount = (el, { onNavigate }) => {
     <App history={history} />,
     el
   );
+
+  return {
+    onParentNavigate({ pathname: nextPathName }) {
+      const { pathname } = history.location;
+      if (pathname !== nextPathName) {
+        history.push(nextPathName);
+      }
+    }
+  }
 };
 
 // If we are in development and in isolation,
