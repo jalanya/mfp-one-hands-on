@@ -14,7 +14,10 @@ export default () => {
         if (pathname !== nextPathName) {
           history.push(nextPathName);
         }
-      }
+      },
+      onSignIn: () => {
+        console.log('User signed in');
+      },
     });
     history.listen(onParentNavigate);
   }, []);
